@@ -1,0 +1,25 @@
+<Project Sdk="Microsoft.NET.Sdk.Worker">
+
+  <PropertyGroup>
+    <TargetFramework>net8.0</TargetFramework>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <UserSecretsId>dotnet-MyTest.WorkerService-3c10a6b3-5e4c-40e4-aec7-70c135c4ea6c</UserSecretsId>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Hangfire" Version="1.8.17" />
+    <PackageReference Include="Hangfire.Core" Version="1.8.17" />
+    <PackageReference Include="Hangfire.MemoryStorage" Version="1.8.1.1" />
+    <PackageReference Include="Microsoft.Extensions.Hosting" Version="8.0.1" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Workers\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\MyTest.Application\MyTest.Application.csproj" />
+    <ProjectReference Include="..\MyTest.Jobs\MyTest.Jobs.csproj" />
+  </ItemGroup>
+</Project>
