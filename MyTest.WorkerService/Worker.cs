@@ -19,7 +19,7 @@ namespace MyTest.WorkerService
             _recurringJobManager.AddOrUpdate<BreedUpsertJob>(
                 "BreedUpsertJob",
                 job => job.ExecuteAsync(),
-                Cron.Hourly);
+                Cron.Minutely);
 
             await Task.CompletedTask;
         }

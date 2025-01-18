@@ -9,10 +9,10 @@ namespace MyTest.Domain.Interfaces
 {
     public interface IBreedRepository
     {
-        Task<Breed> GetBreedByIdAsync(Guid id);
-        Task<IEnumerable<Breed>> GetAllBreedsAsync();
-        Task AddBreedAsync(Breed breed);
-        Task UpdateBreedAsync(Breed breed);
+        Task<Breeds> GetBreedByIdAsync(Guid id);
+        Task<IEnumerable<Breeds>> GetAllBreedsAsync();
+        Task AddBreedAsync(Breeds breed);
+        Task UpdateBreedAsync(Breeds breed);
         Task DeleteBreedAsync(Guid id);
     }
 }

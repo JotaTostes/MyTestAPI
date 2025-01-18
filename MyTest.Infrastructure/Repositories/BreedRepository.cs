@@ -19,25 +19,25 @@ namespace MyTest.Infrastructure.Repositories
             _context = context;
         }
 
-        public async Task<Breed> GetBreedByIdAsync(Guid id)
+        public async Task<Breeds> GetBreedByIdAsync(Guid id)
         {
             return await _context.Breeds
                 .FirstOrDefaultAsync(b => b.Id == id);
         }
 
-        public async Task<IEnumerable<Breed>> GetAllBreedsAsync()
+        public async Task<IEnumerable<Breeds>> GetAllBreedsAsync()
         {
             return await _context.Breeds
                 .ToListAsync();
         }
 
-        public async Task AddBreedAsync(Breed breed)
+        public async Task AddBreedAsync(Breeds breed)
         {
             await _context.Breeds.AddAsync(breed);
             await _context.SaveChangesAsync();
         }
 
-        public async Task UpdateBreedAsync(Breed breed)
+        public async Task UpdateBreedAsync(Breeds breed)
         {
             _context.Breeds.Update(breed);
             await _context.SaveChangesAsync();

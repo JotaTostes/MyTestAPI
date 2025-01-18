@@ -15,10 +15,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Workers\" />
-  </ItemGroup>
-
-  <ItemGroup>
     <ProjectReference Include="..\MyTest.Application\MyTest.Application.csproj" />
     <ProjectReference Include="..\MyTest.Jobs\MyTest.Jobs.csproj" />
   </ItemGroup>

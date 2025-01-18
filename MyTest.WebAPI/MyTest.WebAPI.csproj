@@ -7,12 +7,14 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <PackageReference Include="Hangfire" Version="1.8.17" />
     <PackageReference Include="MySql.EntityFrameworkCore" Version="8.0.8" />
     <PackageReference Include="Swashbuckle.AspNetCore" Version="6.6.2" />
   </ItemGroup>
 
   <ItemGroup>
     <ProjectReference Include="..\MyTest.Application\MyTest.Application.csproj" />
+    <ProjectReference Include="..\MyTest.WorkerService\MyTest.WorkerService.csproj" />
   </ItemGroup>
 
 </Project>

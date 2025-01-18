@@ -1,10 +1,15 @@
+using Hangfire;
+using Hangfire.MemoryStorage;
 using Microsoft.OpenApi.Models;
 using MyTest.WebAPI.Configuration;
+using MyTest.WorkerService;
 
 var builder = WebApplication.CreateBuilder(args);
 
 builder.Services.AddDependencies(builder.Configuration);
-
+builder.Services.AddHangfire(config => config.UseMemoryStorage());
+builder.Services.AddHangfireServer();
+builder.Services.AddHostedService<Worker>();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen(c =>
 {

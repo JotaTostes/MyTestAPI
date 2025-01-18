@@ -7,9 +7,9 @@ using System.Threading.Tasks;
 namespace MyTest.Application.Entities
 {
 
-    public class Breed
+    public class Breeds
     {
-        public Guid Id { get; set; } // Chave primária
+        public Guid Id { get; set; }
         public string Name { get; set; }
         public string Description { get; set; }
         public bool Hypoallergenic { get; set; }

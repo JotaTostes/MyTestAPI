@@ -9,13 +9,13 @@ namespace MyTest.Infrastructure.Data
             : base(options)
         {
         }
-        public DbSet<Breed> Breeds { get; set; }
+        public DbSet<Breeds> Breeds { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             base.OnModelCreating(modelBuilder);
 
-            modelBuilder.Entity<Breed>()
+            modelBuilder.Entity<Breeds>()
                 .ToTable("Breed")
                 .HasKey(b => b.Id);
         }

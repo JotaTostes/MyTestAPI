@@ -31,14 +31,14 @@ namespace MyTest.WebAPI.Controllers
         }
 
         [HttpPost]
-        public async Task<ActionResult> AddBreed([FromBody] Breed breed)
+        public async Task<ActionResult> AddBreed([FromBody] Breeds breed)
         {
             await _breedService.AddBreedAsync(breed);
             return CreatedAtAction(nameof(GetBreedById), new { id = breed.Id }, breed);
         }
 
         [HttpPut("{id}")]
-        public async Task<ActionResult> UpdateBreed(Guid id, [FromBody] Breed breed)
+        public async Task<ActionResult> UpdateBreed(Guid id, [FromBody] Breeds breed)
         {
             if (id != breed.Id)
             {

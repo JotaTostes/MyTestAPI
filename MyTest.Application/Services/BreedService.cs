@@ -4,11 +4,6 @@ using MyTest.Application.Interfaces;
 using MyTest.Domain.Interfaces;
 using MyTest.Infrastructure.HttpClients;
 using Newtonsoft.Json;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace MyTest.Application.Services
 {
@@ -23,26 +18,27 @@ namespace MyTest.Application.Services
             _breedRepository = breedRepository;
         }
 
-        public async Task<PaginatedResponse<Breed>> GetAllBreedsAsync()
+        public async Task<ApiResponse> GetAllBreedsAsync()
         {
             var response = await _dogApiClient.GetAsync("breeds");
-            return JsonConvert.DeserializeObject<PaginatedResponse<Breed>>(response);
+            var teste = JsonConvert.DeserializeObject<ApiResponse>(response);
+            return JsonConvert.DeserializeObject<ApiResponse>(response);
         }
 
-        public async Task<Breed> GetBreedByIdAsync(string id)
+        public async Task<ApiResponse> GetBreedByIdAsync(string id)
         {
             var json = await _dogApiClient.GetAsync($"breeds/{id}");
-            var breedResponse = JsonConvert.DeserializeObject<BreedResponse>(json);
+            var breedResponse = JsonConvert.DeserializeObject<ApiResponse>(json);
 
-            return breedResponse.Data;
+            return breedResponse;
         }
 
-        public async Task AddBreedAsync(Breed breed)
+        public async Task AddBreedAsync(Breeds breed)
         {
             await _breedRepository.AddBreedAsync(breed);
         }
 
-        public async Task UpdateBreedAsync(Breed breed)
+        public async Task UpdateBreedAsync(Breeds breed)
         {
             await _breedRepository.UpdateBreedAsync(breed);
         }
