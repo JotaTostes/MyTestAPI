@@ -23,6 +23,13 @@ namespace MyTest.WebAPI.Controllers
             return Ok(breeds);
         }
 
+        [HttpGet("from-database")]
+        public async Task<IActionResult> GetAllBreedsFromDatabase()
+        {
+            var breeds = await _breedService.GetAllFromDataBase();
+            return Ok(breeds);
+        }
+
         [HttpGet("{id}")]
         public async Task<IActionResult> GetBreedById(string id)
         {

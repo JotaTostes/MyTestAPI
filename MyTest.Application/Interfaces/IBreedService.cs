@@ -15,5 +15,6 @@ namespace MyTest.Application.Interfaces
         Task AddBreedAsync(Breeds breed);
         Task UpdateBreedAsync(Breeds breed);
         Task DeleteBreedAsync(Guid id);
+        Task<IEnumerable<Breeds>> GetAllFromDataBase();
     }
 }

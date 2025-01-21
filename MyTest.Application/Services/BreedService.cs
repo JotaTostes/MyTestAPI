@@ -25,6 +25,11 @@ namespace MyTest.Application.Services
             return JsonConvert.DeserializeObject<ApiResponse>(response);
         }
 
+        public async Task<IEnumerable<Breeds>> GetAllFromDataBase()
+        {
+            return await _breedRepository.GetAllBreedsAsync();
+        }
+
         public async Task<ApiResponse> GetBreedByIdAsync(string id)
         {
             var json = await _dogApiClient.GetAsync($"breeds/{id}");

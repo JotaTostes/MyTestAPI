@@ -20,6 +20,15 @@ builder.Services.AddSwaggerGen(c =>
         Description = "A simple API to manage dog breeds"
     });
 });
+builder.Services.AddCors(options =>
+{
+    options.AddPolicy("AllowAll", policy =>
+    {
+        policy.AllowAnyOrigin()
+              .AllowAnyMethod()
+              .AllowAnyHeader();
+    });
+});
 
 builder.Services.AddControllers();
 
@@ -36,7 +45,7 @@ if (app.Environment.IsDevelopment())
 }
 
 app.UseRouting();
-
+app.UseCors("AllowAll");
 app.UseEndpoints(endpoints =>
 {
     endpoints.MapControllers();

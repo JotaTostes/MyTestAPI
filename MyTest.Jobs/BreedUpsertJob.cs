@@ -36,7 +36,7 @@ namespace MyTest.Jobs
                     LifeMin = breed.Attributes.Life.Min,
                     LifeMax = breed.Attributes.Life.Max
                 };
-                await _breedRepository.AddBreedAsync(breedEntity);
+                await _breedRepository.UpdateBreedAsync(breedEntity);
             };
         }
     }

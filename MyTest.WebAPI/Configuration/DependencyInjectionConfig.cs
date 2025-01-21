@@ -14,7 +14,9 @@ namespace MyTest.WebAPI.Configuration
         public static IServiceCollection AddDependencies(this IServiceCollection services, IConfiguration configuration)
         {
             services.AddDbContext<DogDbContext>(options =>
-                options.UseMySQL(configuration.GetConnectionString("MySqlConnection")));
+                options.UseMySQL(configuration.GetConnectionString("MySqlConnection"))
+                .EnableSensitiveDataLogging()
+                .LogTo(Console.WriteLine));
 
             services.AddScoped<IBreedService, BreedService>();
             services.AddScoped<IBreedRepository, BreedRepository>();

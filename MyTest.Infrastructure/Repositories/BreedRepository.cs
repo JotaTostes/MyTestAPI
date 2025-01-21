@@ -33,14 +33,41 @@ namespace MyTest.Infrastructure.Repositories
 
         public async Task AddBreedAsync(Breeds breed)
         {
-            await _context.Breeds.AddAsync(breed);
-            await _context.SaveChangesAsync();
+            try
+            {
+                await _context.Breeds.AddAsync(breed);
+                await _context.SaveChangesAsync();
+            }
+            catch (DbUpdateException ex)
+            {
+                Console.WriteLine($"Database insert error: {ex.InnerException?.Message ?? ex.Message}");
+                throw;
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"Unexpected error: {ex.Message}");
+                throw;
+            }
         }
 
         public async Task UpdateBreedAsync(Breeds breed)
         {
-            _context.Breeds.Update(breed);
-            await _context.SaveChangesAsync();
+            try
+            {
+                _context.Breeds.Update(breed);
+                await _context.SaveChangesAsync();
+            }
+            catch (DbUpdateException ex)
+            {
+                Console.WriteLine($"Database update error: {ex.InnerException?.Message ?? ex.Message}");
+                throw;
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"Unexpected error: {ex.Message}");
+                throw;
+            }
+            
         }
 
         public async Task DeleteBreedAsync(Guid id)
